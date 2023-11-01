@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <title>Watch</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        #circle {
+            width: 250px;
+            height: 250px;
+            border: 1px solid black;
+            border-radius: 125px;
+            margin: auto;
+            display: flex;
+            background-Color: black;
+            margin-top: 150px;
+        }
+
+        #box {
+            margin: auto;
+            justify-content: centre;
+            align-items: centre;
+            font-size: larger;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="circle">
+        <span id="box">00:00:00</span>
+    </div>
+</body>
+<script>
+    const dial = document.getElementById('box');
+    dial.style.color = 'red';
+    function updateTime() {
+        const date = new Date(); // Create a new Date object to get the current time.
+        let hour = date.getHours().toString().padStart(2, '0');
+        let min = date.getMinutes().toString().padStart(2, '0');
+        let sec = date.getSeconds().toString().padStart(2, '0');
+
+        dial.textContent = `${hour}:${min}:${sec}`;
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+
+</script>
+
+</html>
